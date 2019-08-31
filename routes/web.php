@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['prefix'=>'api/v1'], function(){
+  Route::post('feedback', 'FeedbackController@store');
+  Route::get('feedback/data', 'FeedbackController@dashboardData');
+});
+
+Route::get('feedback/input', 'FeedbackController@input');
+
+Route::get('feedback/dashboard', 'FeedbackController@dashboard');
